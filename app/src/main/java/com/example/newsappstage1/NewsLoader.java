@@ -6,6 +6,8 @@ import android.util.Log;
 
 import java.util.List;
 
+import static com.example.newsappstage1.QueryUtils.fetchNewsStoryData;
+
 public class NewsLoader extends AsyncTaskLoader<List<News>> {
     /**
      * Tag for log messages
@@ -46,7 +48,7 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
         }
 
         // Perform the network request, parse the response, and extract a list of newses.
-        List<News> newses = QueryUtils.fetchNewsData(mUrl);
+        List<News> newses = fetchNewsStoryData(mUrl);
         Log.i(LOG_TAG, ": Loaded in background!");
         return newses;
     }
